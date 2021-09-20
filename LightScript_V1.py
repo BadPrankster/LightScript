@@ -26,8 +26,8 @@ pir1 = MotionSensor(4)
 pir2 = MotionSensor(14)
 
 # Dimmer-Parameter
-n = 5
-z = n
+dim_levels = 5
+dim_factor = dim_levels
 
 
 # Code
@@ -52,7 +52,7 @@ while True:
             pixels.set_pixel(i, Adafruit_WS2801.RGB_to_color(bright, bright, bright))
             pixels.show()
         print("Motion detected - Sensor 1 - end")
-        z = n
+        dim_factor = dim_levels
         sleep(wait)
 
 # Reaktion Sensor 2 -> LEDs von hinten einschalten
@@ -62,7 +62,7 @@ while True:
             pixels.set_pixel(pixels.count() -j -1, Adafruit_WS2801.RGB_to_color(bright, bright, bright))
             pixels.show()
         print("Motion detected - Sensor 2 - end")
-        z = n
+        dim_factor = dim_levels
         sleep(wait)
 
 # Informative Textausgabe
@@ -74,9 +74,9 @@ while True:
 
 # Ohne Reaktion -> LEDs dimmen und ausschalten
     if not (pir1.motion_detected or pir2.motion_detected):
-        if z > 0:
-            z -= 1
-            bright *= (z/n)
+        if dim_factor > 0:
+            dim_factor -= 1
+            bright = int(bright * (z/n))
             for k in range(pixels.count()):
                 pixels.set_pixel(k, Adafruit_WS2801.RGB_to_color(bright, bright, bright))
             pixels.show()
