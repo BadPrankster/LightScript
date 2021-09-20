@@ -71,7 +71,6 @@ while True:
     if not pir2.motion_detected:
         print("Motion stopped - Sensor 2")
 
-
 # Ohne Reaktion -> LEDs dimmen und ausschalten
     if not (pir1.motion_detected or pir2.motion_detected):
         if dim_factor > 0:
