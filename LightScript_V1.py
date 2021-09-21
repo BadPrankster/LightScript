@@ -75,7 +75,7 @@ while True:
     if not (pir1.motion_detected or pir2.motion_detected):
         if dim_factor > 0:
             dim_factor -= 1
-            bright = int(bright * (z/n))
+            bright = int(bright * (dim_factor/dim_levels))
             for k in range(pixels.count()):
                 pixels.set_pixel(k, Adafruit_WS2801.RGB_to_color(bright, bright, bright))
             pixels.show()
