@@ -20,6 +20,7 @@ bright = 255
 
 # Zeitdauer festlegen
 wait = 30
+dim_wait = 1.5
 
 # Auswahl der Pins
 pir1 = MotionSensor(4)
@@ -79,6 +80,7 @@ while True:
             for k in range(pixels.count()):
                 pixels.set_pixel(k, Adafruit_WS2801.RGB_to_color(bright, bright, bright))
             pixels.show()
+            sleep(dim_wait)
         else:
             print("Turn LEDs off")
             pixels.clear()
