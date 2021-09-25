@@ -41,7 +41,7 @@ while True:
     if datetime.today().replace(hour=7, minute=30, second=0, microsecond=0) <= datetime.now(): 
         bright = 170
     if datetime.today().replace(hour=18, minute=0, second=0, microsecond=0) <= datetime.now(): 
-        bright = 250
+        bright = 225
     if datetime.today().replace(hour=21, minute=30, second=0, microsecond=0) <= datetime.now(): 
         bright = 200
     print("Brightness is set to " + str(bright))  
